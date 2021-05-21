@@ -27,7 +27,7 @@ async function onInputSearchImage(e) {
     resetOldQueryPage(images);
     makeCardImage(images.hits);
     addButtonLoadMore(images);
-    scrollPageDown(images);
+    scrollPageDown();
 
     if (images.hits.length === 0) {
       notices.errorEmptyInput();
@@ -58,14 +58,21 @@ async function onButtonLoadImages(e) {
 
   const images = await newFetchApiImage.fetchApiImage();
   makeCardImage(images.hits);
+  scrollPageDown();
 }
 
-function scrollPageDown(images) {
-  if (images.hits.length > 0)
+function scrollPageDown() {
+  if (newFetchApiImage.page === 1) {
     window.scrollTo({
       top: 150,
       behavior: 'smooth',
     });
+  } else {
+    window.scrollBy({
+      top: 505,
+      behavior: 'smooth',
+    });
+  }
 }
 
 function zoomImage(e) {
