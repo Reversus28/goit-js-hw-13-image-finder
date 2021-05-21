@@ -196,3 +196,7 @@ img {
     background: #37375aa4;
   }
 }
+
+.basicLightbox__placeholder > img {
+  object-fit: cover;
+}
