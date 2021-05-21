@@ -18,18 +18,23 @@ const newFetchApiImage = new NewFetchApiImage();
 async function onInputSearchImage(e) {
   e.preventDefault();
   try {
-    const newQuery = refs.searchInput.value;
-    newFetchApiImage.query = newQuery;
+    if (refs.searchInput.value) {
+      const newQuery = refs.searchInput.value;
+      newFetchApiImage.query = newQuery;
 
-    const images = await newFetchApiImage.fetchApiImage();
-    newFetchApiImage.resetPageNum();
+      const images = await newFetchApiImage.fetchApiImage();
+      newFetchApiImage.resetPageNum();
 
-    resetOldQueryPage(images);
-    makeCardImage(images.hits);
-    addButtonLoadMore(images);
-    scrollPageDown();
+      resetOldQueryPage(images);
+      makeCardImage(images.hits);
+      addButtonLoadMore(images);
+      scrollPageDown();
 
-    if (images.hits.length === 0) {
+      if (images.hits.length === 0) {
+        notices.errorEmptyInput();
+      }
+    }
+    if (!refs.searchInput.value) {
       notices.errorEmptyInput();
     }
   } catch (error) {
