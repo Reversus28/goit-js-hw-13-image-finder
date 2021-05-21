@@ -1,0 +1,198 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: #424242;
+  background: linear-gradient(to right, #9796f0, #fbc7d4);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.image-gallery {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.container {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.titel {
+  margin-bottom: 20px;
+
+  font-size: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+
+  text-shadow: 3px 2px 0px #504ec0;
+}
+
+.box-input {
+  display: flex;
+  justify-content: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  border: 2px solid #6e6cc4;
+  border-radius: 5px;
+  &:focus-within {
+    border: 2px solid #2e2e36be;
+    border-radius: 5px;
+    box-shadow: 0 3px 8px #504ec0;
+  }
+}
+
+.search-input {
+  width: 400px;
+  padding: 0.75rem 1.2rem;
+
+  font-size: 15px;
+  font-weight: 600;
+  color: #54518a;
+
+  background: #fff;
+  border-radius: 3px 0 0 3px;
+  border: 0;
+  outline: 0;
+  transition: 0.1s all linear;
+}
+
+.search-button {
+  width: 65px;
+  height: 45px;
+
+  border: none;
+  border-radius: 0 3px 3px 0;
+  background-color: #6e6cc4;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'%0Afill='%23fff' viewBox='0 0 118.783 118.783' style='enable-background:new 0 0 118.783 118.783;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M115.97,101.597L88.661,74.286c4.64-7.387,7.333-16.118,7.333-25.488c0-26.509-21.49-47.996-47.998-47.996 S0,22.289,0,48.798c0,26.51,21.487,47.995,47.996,47.995c10.197,0,19.642-3.188,27.414-8.605l26.984,26.986 c1.875,1.873,4.333,2.806,6.788,2.806c2.458,0,4.913-0.933,6.791-2.806C119.72,111.423,119.72,105.347,115.97,101.597z M47.996,81.243c-17.917,0-32.443-14.525-32.443-32.443s14.526-32.444,32.443-32.444c17.918,0,32.443,14.526,32.443,32.444 S65.914,81.243,47.996,81.243z'/%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  outline: 0;
+
+  &:hover,
+  &:focus {
+    background-color: #54518a;
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: 30px;
+  padding: 0;
+
+  list-style: none;
+
+  .img {
+    height: 300px;
+    width: max-content;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .image-item {
+    position: relative;
+
+    flex-basis: calc(100% / 4 - 20px);
+    margin-bottom: 30px;
+
+    border-radius: 15px;
+    box-shadow: 0 3px 8px #272735;
+    overflow: hidden;
+
+    &:not(:nth-child(4n)) {
+      margin-right: 26px;
+    }
+  }
+
+  .stats {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+
+    background: #37375ad7;
+
+    transform: translate(-50%, 100%);
+    transition: transform 200ms linear;
+  }
+
+  .image-card:hover > .stats {
+    transform: translate(-50%, 0%);
+  }
+
+  .stats-item {
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+    color: #fff;
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+
+  .material-icons {
+    margin-right: 6px;
+
+    font-size: 18px;
+  }
+}
+
+.load-more {
+  display: block;
+  height: 50px;
+  width: 150px;
+  margin: 0 auto;
+
+  color: #fff;
+  font-weight: 600;
+
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 3px 8px #272735;
+  background-color: #6e6cc4;
+
+  &:hover {
+    background: #37375aa4;
+  }
+}
