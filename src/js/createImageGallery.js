@@ -13,12 +13,6 @@ const refs = {
 refs.searchButton.addEventListener('click', onInputSearchImage);
 refs.loadMoreBtn.addEventListener('click', onButtonLoadImages);
 refs.gallery.addEventListener('click', zoomImage);
-refs.buttonUp.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-});
 
 const newFetchApiImage = new NewFetchApiImage();
 
@@ -36,6 +30,7 @@ async function onInputSearchImage(e) {
       makeCardImage(images.hits);
       addButtonLoadMore(images);
       scrollPageDown();
+      addButtonUp();
 
       if (images.hits.length === 0) {
         notices.errorEmptyInput();
@@ -96,4 +91,14 @@ function zoomImage(e) {
 
     instance.show();
   }
+}
+
+function addButtonUp() {
+  refs.buttonUp.classList.remove('hidden');
+  refs.buttonUp.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
 }
