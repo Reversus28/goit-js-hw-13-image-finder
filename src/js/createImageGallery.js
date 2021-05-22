@@ -7,11 +7,18 @@ const refs = {
   searchButton: document.querySelector('.search-button'),
   loadMoreBtn: document.querySelector('.load-more'),
   gallery: document.querySelector('.gallery'),
+  buttonUp: document.querySelector('.up'),
 };
 
 refs.searchButton.addEventListener('click', onInputSearchImage);
 refs.loadMoreBtn.addEventListener('click', onButtonLoadImages);
 refs.gallery.addEventListener('click', zoomImage);
+refs.buttonUp.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
 
 const newFetchApiImage = new NewFetchApiImage();
 

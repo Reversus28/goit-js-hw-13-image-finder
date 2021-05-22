@@ -18,7 +18,6 @@ export default class NewFetchApiImage {
 
   incrementPage() {
     this.page += 1;
-    console.log(this.page);
   }
 
   resetPageNum() {
